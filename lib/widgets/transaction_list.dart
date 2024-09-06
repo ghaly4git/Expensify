@@ -15,7 +15,7 @@ class TransactionList extends StatelessWidget {
           ? Column(
               children: [
                 Text(
-                  'no trans added yet',
+                  'no transaction added yet',
                   style: TextStyle(fontSize: 20),
                 ),
                 SizedBox(

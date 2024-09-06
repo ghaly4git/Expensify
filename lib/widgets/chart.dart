@@ -2,9 +2,23 @@ import 'package:expensify/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-abstract class chart extends StatelessWidget {
-  late final List<Transaction> recentTransactions;
-  chart(this.recentTransactions);
+class Chart extends StatelessWidget {
+  final List<Transaction> recentTransactions;
+
+  Chart(
+      this.recentTransactions); // Constructor to accept a list of transactions
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        // Placeholder, add your Text Here, if you want to
+        );
+  }
+}
+
+class chart extends StatelessWidget {
+  final List<Transaction> recentTransactions;
+  const chart(this.recentTransactions);
 
   List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(7, (index) {
@@ -19,10 +33,8 @@ abstract class chart extends StatelessWidget {
           totalSum += recentTransactions[i].amount;
         }
       }
-      print(DateFormat.E(weekDay));
-      print(totalSum);
 
-      return {'day': DateFormat.E(weekDay), 'amount': totalSum};
+      return {'day': DateFormat.E().format(weekDay), 'amount': totalSum};
     });
   }
 
